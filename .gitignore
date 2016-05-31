@@ -1,4 +1,5 @@
 dist
+docker/dist
 typings
 src/**/*.js
 src/**/*.map
