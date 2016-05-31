@@ -1,0 +1,18 @@
+<h2>List of Users</h2>
+<ul class="users">
+  <li *ngFor="let user of users" [class.selected]="user === selectedUser" (click)="onSelect(user)">
+    <span class="badge">{{user.name}}</span> {{user.age}}
+    <button class="delete-button" (click)="delete(user, $event)">Delete</button>
+  </li>
+</ul>
+<button (click)="addUser()">Add New User</button>
+<div *ngIf="addingUser">
+  <span class="badge">----Add New User----</span> 
+  <my-user-detail (close)="close($event)"></my-user-detail>
+</div>
+<div *ngIf="selectedUser">
+  <h2>
+    {{selectedUser.name | uppercase}} is the selected user
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
